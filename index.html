@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#667eea">
+  <meta name="description" content="SafeSales AI - Sistema Inteligente de Apoio ao Especialista Comercial">
+  <title>SafeSales AI - Futuro do Trabalho 2030-2050</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <!-- Ícones e Fontes do Google -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="mobile-frame">
+
+    <!-- OVERLAY E MENU LATERAL -->
+    <div class="sidebar-overlay" id="overlay" onclick="toggleMenu()"></div>
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="user-avatar">
+          <i class="material-icons" style="font-size: 30px;">person</i>
+        </div>
+        <h3 style="font-weight: 500; margin: 10px 0 5px;">SafeSales AI</h3>
+        <p style="font-size: 12px; opacity: 0.8; margin: 0;">v 2.0 - Futuro do Trabalho</p>
+        <span
+          style="font-size: 10px; background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 8px; margin-top: 8px; display: inline-block;">
+          🚀 2030-2050
+        </span>
+      </div>
+      <ul class="sidebar-menu">
+        <li class="sidebar-item active" onclick="navigateTo('home')">
+          <i class="material-icons">home</i> Home
+        </li>
+        <li class="sidebar-item" onclick="navigateTo('vision')">
+          <i class="material-icons">visibility</i> Visão SafeSales AI
+        </li>
+        <li class="sidebar-item" onclick="navigateTo('ai-features')">
+          <i class="material-icons">psychology</i> Como a IA Funciona
+        </li>
+        <li class="sidebar-item" onclick="showToast('Abrindo mapa...', 2000, 'info'); toggleMenu();">
+          <i class="material-icons">location_on</i> Check-in PaP
+        </li>
+        <li class="sidebar-item" onclick="showToast('Listando histórico...', 2000, 'info'); toggleMenu();">
+          <i class="material-icons">format_list_bulleted</i> Meus Check-in's
+        </li>
+        <li class="sidebar-item" onclick="toggleMenu()">
+          <i class="material-icons">phone_iphone</i> Visita RP
+        </li>
+        <li class="sidebar-item" onclick="toggleMenu()">
+          <i class="material-icons">location_on</i> Check-in RE
+        </li>
+        <li class="sidebar-item" onclick="toggleMenu()">
+          <i class="material-icons">check_circle</i> Check-out RE
+        </li>
+        <li class="sidebar-item" onclick="toggleMenu()">
+          <i class="material-icons">monetization_on</i> Atendidos RE
+        </li>
+        <li class="sidebar-item" onclick="toggleMenu()">
+          <i class="material-icons">calendar_today</i> Agenda
+        </li>
+        <li class="sidebar-item" onclick="navigateTo('ods-impact')">
+          <i class="material-icons">eco</i> Impacto ODS
+        </li>
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); margin: 8px 0;"></div>
+        <li class="sidebar-item" onclick="showToast('Configurações em breve...', 2000, 'info'); toggleMenu();">
+          <i class="material-icons">settings</i> Configurações
+        </li>
+        <li class="sidebar-item" onclick="showToast('Logout realizado', 2000, 'success'); toggleMenu();">
+          <i class="material-icons">logout</i> Sair
+        </li>
+      </ul>
+    </nav>
+
+    <!-- HEADER FIXO -->
+    <header class="app-header">
+      <button class="menu-btn" onclick="toggleMenu()">
+        <i class="material-icons">menu</i>
+      </button>
+      <div class="header-title" id="header-title">SafeSales AI</div>
+      <div class="header-icons">
+        <i class="material-icons" onclick="showToast('Busca em breve...', 2000, 'info')">search</i>
+        <i class="material-icons" onclick="showToast('Mais opções...', 2000, 'info')">more_vert</i>
+      </div>
+    </header>
+
+    <!-- ÁREA DE CONTEÚDO -->
+    <div class="content-area">
+
+      <!-- ========================================
+           TELA 1: HOME / LISTA DE CLIENTES
+      ======================================== -->
+      <div id="screen-home" class="screen active">
+        <div class="map-section">
+          <i class="material-icons fake-map-marker">location_on</i>
+          <div
+            style="position:absolute; bottom: 10px; left: 10px; background:white; padding:4px 8px; border-radius:4px; font-size:10px; font-weight:bold;">
+            Google Maps (Simulação)
+          </div>
+        </div>
+
+        <div class="action-bar">
+          <button class="btn-checkin-large"
+            onclick="showToast('Selecione um cliente abaixo primeiro', 2000, 'warning')">
+            CHECK-IN
+          </button>
+          <label class="checkbox-wrapper">
+            <input type="checkbox"> Não Atendida
+          </label>
+        </div>
+
+        <div class="section-title">Oportunidade de Venda Agendada</div>
+        <p style="padding-left:16px; font-size:12px; color:#666; margin-bottom:8px;">04/06/2025 18:30</p>
+
+        <!-- CARD CLIENTE 1 -->
+        <div class="client-card clickable" data-risk="low" onclick="navigateTo('details')">
+          <div class="card-name">Emersom Azevedo Da Mata</div>
+          <div class="card-address">R PEDRO E PEREIRA, 319</div>
+
+          <div class="details-grid">
+            <div><strong>Cidade:</strong> MAUA</div>
+            <div><strong>Estado:</strong> SP</div>
+            <div><strong>Bairro:</strong> JD SÃO JUDAS</div>
+            <div><strong>CEP:</strong> 09361-020</div>
+          </div>
+
+          <div class="ai-preview">
+            <i class="material-icons" style="font-size:16px; margin-right:5px;">psychology</i>
+            <span>Perfil: Analítico | Risco: Baixo | Recomendação disponível</span>
+          </div>
+
+          <div
+            style="margin-top:10px; text-align:right; font-size:11px; color:var(--primary-purple); font-weight:bold;">
+            TOQUE PARA ANÁLISE COMPLETA >
+          </div>
+        </div>
+
+        <!-- CARD CLIENTE 2 -->
+        <div class="client-card clickable" data-risk="medium" onclick="navigateTo('details')" style="margin-top: 15px;">
+          <div class="card-name">Padaria do João Ltda</div>
+          <div class="card-address">AV BARÃO DE MAUÁ, 1050</div>
+          <div class="details-grid">
+            <div><strong>Cidade:</strong> MAUA</div>
+            <div><strong>Estado:</strong> SP</div>
+            <div><strong>Bairro:</strong> CENTRO</div>
+            <div><strong>CEP:</strong> 09370-000</div>
+          </div>
+          <div class="ai-preview">
+            <i class="material-icons" style="font-size:16px; margin-right:5px;">psychology</i>
+            <span>Perfil: Relacional | Risco: Médio | Briefing disponível</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================
+           TELA 2: VISÃO SAFESALES AI
+      ======================================== -->
+      <div id="screen-vision" class="screen">
+        <div class="vision-section">
+          <h2 class="vision-title">🌍 Visão Geral</h2>
+          <div class="vision-content">
+            <p class="highlight">
+              A <strong>SafeSales AI</strong> é uma solução inteligente criada para transformar o papel do
+              especialista comercial no contexto do <strong>Futuro do Trabalho (2030-2050)</strong>,
+              integrando Inteligência Artificial, governança responsável e impacto social alinhado aos
+              <strong>Objetivos de Desenvolvimento Sustentável da ONU (ODS)</strong>.
+            </p>
+
+            <div class="pillars">
+              <h3>🎯 Pilares Fundamentais</h3>
+              <div class="pillar-grid">
+
+                <div class="pillar-card clickable" onclick="this.classList.toggle('expanded')">
+                  <span class="pillar-icon">🤝</span>
+                  <h4>Tecnologia e Humanidade</h4>
+                  <p>IA que amplifica capacidades</p>
+                  <div class="pillar-details">
+                    <small>A IA não substitui o ser humano, mas potencializa suas habilidades únicas de empatia,
+                      criatividade e relacionamento.</small>
+                  </div>
+                </div>
+
+                <div class="pillar-card clickable" onclick="this.classList.toggle('expanded')">
+                  <span class="pillar-icon">📈</span>
+                  <h4>Produtividade e Bem-estar</h4>
+                  <p>Eficiência com qualidade de vida</p>
+                  <div class="pillar-details">
+                    <small>Automatizando tarefas repetitivas, o colaborador ganha tempo para atividades estratégicas e
+                      melhor qualidade de vida.</small>
+                  </div>
+                </div>
+
+                <div class="pillar-card clickable" onclick="this.classList.toggle('expanded')">
+                  <span class="pillar-icon">🌱</span>
+                  <h4>Automação e Impacto Social</h4>
+                  <p>Tecnologia para transformação</p>
+                  <div class="pillar-details">
+                    <small>Cada decisão apoiada pela IA gera impacto mensurável nos Objetivos de Desenvolvimento
+                      Sustentável da ONU.</small>
+                  </div>
+                </div>
+
+                <div class="pillar-card clickable" onclick="this.classList.toggle('expanded')">
+                  <span class="pillar-icon">♻️</span>
+                  <h4>Desempenho e Sustentabilidade</h4>
+                  <p>Resultados com responsabilidade</p>
+                  <div class="pillar-details">
+                    <small>A SafeSales AI integra critérios ESG (Environmental, Social, Governance) em todas as
+                      recomendações e métricas.</small>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="transformation">
+              <h3>🚀 Transformar o Papel do Especialista Comercial</h3>
+              <p>
+                A solução reposiciona o especialista como <strong>consultor estratégico</strong>,
+                delegando atividades mecânicas e repetitivas para a IA.
+              </p>
+              <blockquote>
+                "Na SafeSales AI, humanos focam em empatia, relacionamento e estratégia,
+                enquanto a IA assume tarefas repetitivas, burocráticas e de baixo valor."
+              </blockquote>
+            </div>
+
+            <div class="democratization">
+              <h3>🎓 Democratizar Conhecimento</h3>
+              <p>
+                A IA oferece o mesmo nível de preparo para todos os colaboradores —
+                iniciantes ou veteranos.
+              </p>
+              <div class="ods-badges">
+                <span class="ods-badge ods-4 clickable">ODS 4 - Educação de qualidade</span>
+                <span class="ods-badge ods-8 clickable">ODS 8 - Trabalho decente</span>
+                <span class="ods-badge ods-10 clickable">ODS 10 - Redução das desigualdades</span>
+              </div>
+            </div>
+
+            <button class="btn-checkin-large" style="margin-top:20px; width:100%;" onclick="navigateTo('home')">
+              VOLTAR PARA HOME
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================
+           TELA 2.5: COMO A IA FUNCIONA
+      ======================================== -->
+      <div id="screen-ai-features" class="screen">
+        <div class="vision-section">
+          <h2 class="vision-title">🤖 Como a SafeSales AI Funciona</h2>
+
+          <div class="ai-feature-card">
+            <div class="feature-icon">🧠</div>
+            <h3>Análise Preditiva de Comportamento</h3>
+            <p>A IA analisa mais de 50 variáveis do cliente para prever comportamentos de compra, risco de churn e
+              oportunidades de upsell.</p>
+            <div class="feature-details">
+              <span class="badge">Machine Learning</span>
+              <span class="badge">Precisão: 87%</span>
+            </div>
+          </div>
+
+          <div class="ai-feature-card">
+            <div class="feature-icon">💬</div>
+            <h3>Geração de Briefing Inteligente</h3>
+            <p>Antes de cada visita, a IA cria um briefing personalizado com histórico, preferências e scripts de
+              abordagem otimizados.</p>
+            <div class="feature-details">
+              <span class="badge">NLP (Natural Language Processing)</span>
+              <span class="badge">Tempo economizado: 45min/dia</span>
+            </div>
+          </div>
+
+          <div class="ai-feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Scoring de Risco Social</h3>
+            <p>Algoritmo proprietário que avalia risco financeiro, inadimplência e churn usando dados públicos e
+              histórico transacional.</p>
+            <div class="feature-details">
+              <span class="badge">Data Science</span>
+              <span class="badge">Redução de inadimplência: 30%</span>
+            </div>
+          </div>
+
+          <div class="ai-feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Recomendações Priorizadas</h3>
+            <p>A IA ranqueia ações por impacto esperado, ajudando o especialista a focar no que gera mais resultado.</p>
+            <div class="feature-details">
+              <span class="badge">Reinforcement Learning</span>
+              <span class="badge">Aumento de conversão: 25%</span>
+            </div>
+          </div>
+
+          <div class="ai-feature-card">
+            <div class="feature-icon">🌍</div>
+            <h3>Impacto ODS em Tempo Real</h3>
+            <p>Dashboards que mostram como cada ação do especialista contribui para os Objetivos de Desenvolvimento
+              Sustentável.</p>
+            <div class="feature-details">
+              <span class="badge">ESG Analytics</span>
+              <span class="badge">Transparência: 100%</span>
+            </div>
+          </div>
+
+          <button class="btn-checkin-large" style="margin-top:20px; width:100%;" onclick="navigateTo('home')">
+            VOLTAR PARA HOME
+          </button>
+        </div>
+      </div>
+
+      <!-- ========================================
+           TELA 3: DETALHES DO CLIENTE + IA
+      ======================================== -->
+      <div id="screen-details" class="screen">
+
+        <div class="form-group">
+          <div class="label">Contato</div>
+          <div class="value" style="font-weight:bold;">Emersom Azevedo Da Mata</div>
+        </div>
+
+        <!-- PAINEL AI EXPANDIDO -->
+        <div class="ai-panel-expanded">
+
+          <!-- BADGE DEMOCRATIZAÇÃO -->
+          <div class="ai-democratization-badge">
+            <i class="material-icons">school</i>
+            <div>
+              <strong>Democratização do Conhecimento</strong>
+              <p>Mesma qualidade de análise para iniciantes e veteranos</p>
+            </div>
+          </div>
+
+          <!-- CITAÇÃO DO DOCUMENTO -->
+          <div class="ai-quote">
+            <i class="material-icons">format_quote</i>
+            <p>"Humanos focam em empatia, relacionamento e estratégia, enquanto a IA assume tarefas repetitivas,
+              burocráticas e de baixo valor."</p>
+          </div>
+
+          <!-- HEADER -->
+          <div class="ai-header">
+            <i class="material-icons">psychology</i> SafeSales AI - Análise Completa
+          </div>
+
+          <!-- TABS -->
+          <div class="ai-tabs">
+            <button class="tab-button active" onclick="showAITab('profile')">
+              <i class="material-icons">person</i> Perfil
+            </button>
+            <button class="tab-button" onclick="showAITab('risk')">
+              <i class="material-icons">warning</i> Risco
+            </button>
+            <button class="tab-button" onclick="showAITab('briefing')">
+              <i class="material-icons">description</i> Briefing
+            </button>
+            <button class="tab-button" onclick="showAITab('recommendation')">
+              <i class="material-icons">lightbulb</i> Ações
+            </button>
+            <button class="tab-button" onclick="showAITab('history')">
+              <i class="material-icons">history</i> Histórico
+            </button>
+          </div>
+
+          <!-- TAB: PERFIL -->
+          <div id="ai-profile" class="tab-content active">
+            <h4>📊 Perfil Comportamental Detalhado</h4>
+            <div class="info-card">
+              <p><strong>Tipo de Perfil:</strong> <span class="ai-tag">Analítico</span></p>
+              <p><strong>Comportamento de Compra:</strong> Focado em custo-benefício e ROI claro</p>
+              <p><strong>Histórico de Compras:</strong> 3 nos últimos 12 meses (+15% vs média)</p>
+              <p><strong>Ticket Médio:</strong> R$ 2.500,00 (acima da média do segmento)</p>
+              <p><strong>Última Interação:</strong> 3 meses atrás (NPS: 9/10 - Promotor)</p>
+              <p><strong>Canal Preferido:</strong> WhatsApp (responde em até 2h)</p>
+              <p><strong>Horário Ideal:</strong> Manhã (9h-11h) ou final da tarde (16h-18h)</p>
+            </div>
+
+            <div class="ai-insight-box">
+              <i class="material-icons" style="color: var(--primary-purple);">tips_and_updates</i>
+              <div>
+                <strong>Insight da IA:</strong>
+                <p>Cliente demonstra padrão de compra trimestral. Probabilidade de recompra nos próximos 15 dias:
+                  <strong>78%</strong>. Abordagem recomendada: apresentar dados concretos e cases de sucesso.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB: RISCO -->
+          <div id="ai-risk" class="tab-content">
+            <h4>⚠️ Análise de Risco Social</h4>
+            <div class="risk-card low-risk">
+              <p><strong>Risco Geral:</strong> <span class="risk-badge low">BAIXO</span></p>
+              <div class="risk-breakdown">
+                <div class="risk-item">
+                  <span>Risco Financeiro:</span>
+                  <div class="risk-bar">
+                    <div class="risk-fill" style="width: 20%; background: #4caf50;"></div>
+                  </div>
+                  <span class="risk-label">20% - Baixo</span>
+                </div>
+                <div class="risk-item">
+                  <span>Risco de Inadimplência:</span>
+                  <div class="risk-bar">
+                    <div class="risk-fill" style="width: 15%; background: #4caf50;"></div>
+                  </div>
+                  <span class="risk-label">15% - Muito Baixo</span>
+                </div>
+                <div class="risk-item">
+                  <span>Risco de Churn:</span>
+                  <div class="risk-bar">
+                    <div class="risk-fill" style="width: 30%; background: #ff9800;"></div>
+                  </div>
+                  <span class="risk-label">30% - Médio</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB: BRIEFING -->
+          <div id="ai-briefing" class="tab-content">
+            <h4>📋 Briefing Estratégico</h4>
+            <div class="briefing-card">
+              <p><strong>🎯 Contexto:</strong></p>
+              <p>Cliente com perfil analítico, valoriza dados concretos e ROI claro. Histórico positivo de
+                relacionamento.</p>
+
+              <p style="margin-top:15px;"><strong>💡 Oportunidades Identificadas:</strong></p>
+              <ul>
+                <li>Upsell de produto complementar (30% de chance de conversão)</li>
+                <li>Renovação de contrato em 45 dias</li>
+                <li>Cross-sell: Serviço Premium (interesse demonstrado em consulta anterior)</li>
+              </ul>
+
+              <p style="margin-top:15px;"><strong>⚡ Pontos de Atenção:</strong></p>
+              <ul>
+                <li>Sem contato há 3 meses - necessário reengajamento</li>
+                <li>Sensível a preço - preparar proposta competitiva</li>
+                <li>Competitor XYZ abordou recentemente (fonte: inteligência de mercado)</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- TAB: RECOMENDAÇÕES -->
+          <div id="ai-recommendation" class="tab-content">
+            <h4>💡 Recomendações IA</h4>
+
+            <div class="recommendation-card priority-high">
+              <p><strong>🔥 Alta Prioridade</strong></p>
+              <p><strong>Ação:</strong> Contato proativo esta semana</p>
+              <p><strong>Script sugerido:</strong> "Olá Emersom, notamos que você gostou do nosso produto X. Temos uma
+                promoção especial que pode economizar 20% no seu próximo pedido."</p>
+              <p><strong>Impacto esperado:</strong> +R$ 1.200 em receita</p>
+            </div>
+
+            <div class="recommendation-card priority-medium">
+              <p><strong>⚡ Média Prioridade</strong></p>
+              <p><strong>Ação:</strong> Apresentar case de sucesso</p>
+              <p><strong>Objetivo:</strong> Mostrar ROI de 35% em caso similar do setor</p>
+              <p><strong>Impacto esperado:</strong> Aumento de confiança +25%</p>
+            </div>
+
+            <div class="recommendation-card priority-low">
+              <p><strong>📌 Baixa Prioridade</strong></p>
+              <p><strong>Ação:</strong> Incluir em campanha de e-mail marketing mensal</p>
+              <p><strong>Objetivo:</strong> Manter top of mind</p>
+            </div>
+          </div>
+
+          <!-- TAB: HISTÓRICO -->
+          <div id="ai-history" class="tab-content">
+            <h4>📜 Histórico de Interações com IA</h4>
+
+            <div class="history-timeline">
+              <div class="history-item">
+                <div class="history-date">Hoje, 14:30</div>
+                <div class="history-content">
+                  <strong>🤖 IA gerou briefing:</strong> Análise de risco atualizada. Cliente mantém perfil de baixo
+                  risco.
+                </div>
+              </div>
+
+              <div class="history-item">
+                <div class="history-date">Ontem, 09:15</div>
+                <div class="history-content">
+                  <strong>✅ Check-in realizado:</strong> Visita concluída com sucesso. Cliente aceitou proposta de
+                  upsell (+R$ 1.200).
+                </div>
+              </div>
+
+              <div class="history-item">
+                <div class="history-date">3 dias atrás</div>
+                <div class="history-content">
+                  <strong>⚠️ Alerta da IA:</strong> Cliente sem contato há 90 dias. Recomendação: enviar mensagem de
+                  reengajamento.
+                </div>
+              </div>
+
+              <div class="history-item">
+                <div class="history-date">1 semana atrás</div>
+                <div class="history-content">
+                  <strong>📊 IA atualizou perfil:</strong> Cliente promovido para categoria "Premium" devido ao aumento
+                  de ticket médio.
+                </div>
+              </div>
+
+              <div class="history-item">
+                <div class="history-date">2 semanas atrás</div>
+                <div class="history-content">
+                  <strong>💡 Recomendação aceita:</strong> Especialista seguiu script sugerido. Taxa de conversão: 85%.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- FORMULÁRIO DE ENDEREÇO -->
+        <div class="form-group">
+          <div style="display:flex; justify-content:space-between;">
+            <div>
+              <div class="label">Endereço*</div>
+              <div class="value" style="border:none;">R PEDRO E PEREIRA, 319</div>
+            </div>
+            <button class="map-icon-btn" onclick="showToast('Abrindo mapa...', 2000, 'info')">
+              <i class="material-icons" style="color: #4285F4;">map</i>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="label">Complemento</div>
+          <div class="value">Casa 2</div>
+        </div>
+
+        <div class="grid-row">
+          <div class="grid-col">
+            <div class="label">Cidade*</div>
+            <div class="value">MAUA</div>
+          </div>
+          <div class="grid-col">
+            <div class="label">Estado*</div>
+            <div class="value">SP</div>
+          </div>
+        </div>
+
+        <div class="grid-row">
+          <div class="grid-col">
+            <div class="label">Bairro*</div>
+            <div class="value">JD SÃO JUDAS</div>
+          </div>
+          <div class="grid-col">
+            <div class="label">CEP*</div>
+            <div class="value">09361-020</div>
+          </div>
+        </div>
+
+        <div class="form-group" style="border:none;">
+          <div class="label">Atualizar Status</div>
+          <button class="btn-checkin-large"
+            style="margin-top:10px; width:100%; background:linear-gradient(135deg, #4CAF50 0%, #45a049 100%);"
+            onclick="performCheckIn()">
+            ✓ INICIAR VISITA COM IA
+          </button>
+          <button class="btn-checkin-large clickable"
+            style="margin-top:10px; width:100%; background:#fff; color:var(--primary-purple); border:2px solid var(--primary-purple);"
+            onclick="navigateTo('home')">
+            VOLTAR
+          </button>
+        </div>
+
+      </div>
+
+      <!-- ========================================
+           TELA 4: IMPACTO ODS
+      ======================================== -->
+      <div id="screen-ods-impact" class="screen">
+        <div class="ods-impact-section">
+          <h2 class="vision-title">🌍 Impacto nos ODS</h2>
+
+          <div class="ods-impact-card">
+            <h3>Alinhamento com Objetivos de Desenvolvimento Sustentável</h3>
+
+            <div class="ods-item">
+              <div class="ods-badge ods-4">ODS 4</div>
+              <div class="ods-description">
+                <h4>Educação de Qualidade</h4>
+                <p>A SafeSales AI capacita todos os colaboradores com conhecimento de ponta, democratizando o acesso a
+                  insights estratégicos.</p>
+                <div class="impact-bar">
+                  <div class="impact-fill" style="width: 85%;"></div>
+                </div>
+                <span class="impact-label">Impacto: 85%</span>
+              </div>
+            </div>
+
+            <div class="ods-item">
+              <div class="ods-badge ods-8">ODS 8</div>
+              <div class="ods-description">
+                <h4>Trabalho Decente e Crescimento Econômico</h4>
+                <p>Transforma o especialista comercial em consultor estratégico, elevando a qualidade do trabalho.</p>
+                <div class="impact-bar">
+                  <div class="impact-fill" style="width: 90%;"></div>
+                </div>
+                <span class="impact-label">Impacto: 90%</span>
+              </div>
+            </div>
+
+            <div class="ods-item">
+              <div class="ods-badge ods-10">ODS 10</div>
+              <div class="ods-description">
+                <h4>Redução das Desigualdades</h4>
+                <p>IA oferece o mesmo nível de preparo para iniciantes e veteranos, reduzindo desigualdades.</p>
+                <div class="impact-bar">
+                  <div class="impact-fill" style="width: 80%;"></div>
+                </div>
+                <span class="impact-label">Impacto: 80%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="metrics-card">
+            <h4>📊 Métricas de Impacto Social</h4>
+
+            <div class="metric-item">
+              <div class="metric-header">
+                <span>Colaboradores com acesso à IA</span>
+                <strong>100%</strong>
+              </div>
+              <div class="metric-bar">
+                <div class="metric-fill" style="width: 100%; background: #4caf50;"></div>
+              </div>
+            </div>
+
+            <div class="metric-item">
+              <div class="metric-header">
+                <span>Redução em tarefas repetitivas</span>
+                <strong>60%</strong>
+              </div>
+              <div class="metric-bar">
+                <div class="metric-fill" style="width: 60%; background: #2196f3;"></div>
+              </div>
+            </div>
+
+            <div class="metric-item">
+              <div class="metric-header">
+                <span>Aumento em tempo dedicado a estratégia</span>
+                <strong>45%</strong>
+              </div>
+              <div class="metric-bar">
+                <div class="metric-fill" style="width: 45%; background: #ff9800;"></div>
+              </div>
+            </div>
+
+            <div class="metric-item">
+              <div class="metric-header">
+                <span>Melhoria no bem-estar dos colaboradores</span>
+                <strong>30%</strong>
+              </div>
+              <div class="metric-bar">
+                <div class="metric-fill" style="width: 30%; background: #e91e63;"></div>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn-checkin-large" style="margin-top:20px; width:100%;" onclick="navigateTo('home')">
+            VOLTAR PARA HOME
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- TOAST MESSAGE -->
+    <div id="toast" class="toast"></div>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script src="main.js"></script>
+</body>
+
+</html>
