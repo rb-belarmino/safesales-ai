@@ -12,7 +12,7 @@
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icon.png">
 
-  <!-- Ícones e Fontes do Google -->
+  <!-- Google's icons and fonts -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -24,7 +24,7 @@
 
   <div class="mobile-frame">
 
-    <!-- OVERLAY E MENU LATERAL -->
+    <!-- OVERLAY AND SIDE MENU -->
     <div class="sidebar-overlay" id="overlay" onclick="toggleMenu()"></div>
     <nav class="sidebar" id="sidebar">
       <div class="sidebar-header">
@@ -82,7 +82,7 @@
       </ul>
     </nav>
 
-    <!-- HEADER FIXO -->
+    <!-- HEADER -->
     <header class="app-header">
       <button class="menu-btn" onclick="toggleMenu()">
         <i class="material-icons">menu</i>
@@ -94,11 +94,11 @@
       </div>
     </header>
 
-    <!-- ÁREA DE CONTEÚDO -->
+    <!-- CONTENT -->
     <div class="content-area">
 
       <!-- ========================================
-           TELA 1: HOME / LISTA DE CLIENTES
+           SCREEN 1: HOME / CLIENT LIST
       ======================================== -->
       <div id="screen-home" class="screen active">
         <div class="map-section">
@@ -122,7 +122,7 @@
         <div class="section-title">Oportunidade de Venda Agendada</div>
         <p style="padding-left:16px; font-size:12px; color:#666; margin-bottom:8px;">04/06/2025 18:30</p>
 
-        <!-- CARD CLIENTE 1 -->
+        <!-- CLIENT CARD 1 -->
         <div class="client-card clickable" data-risk="low" onclick="navigateTo('details')">
           <div class="card-name">Emersom Azevedo Da Mata</div>
           <div class="card-address">R PEDRO E PEREIRA, 319</div>
@@ -145,7 +145,7 @@
           </div>
         </div>
 
-        <!-- CARD CLIENTE 2 -->
+        <!-- CLIENT CARD 2 -->
         <div class="client-card clickable" data-risk="medium" onclick="navigateTo('details')" style="margin-top: 15px;">
           <div class="card-name">Padaria do João Ltda</div>
           <div class="card-address">AV BARÃO DE MAUÁ, 1050</div>
@@ -163,7 +163,7 @@
       </div>
 
       <!-- ========================================
-           TELA 2: VISÃO SAFESALES AI
+           SCREEN 2: SAFESALES AI VISION
       ======================================== -->
       <div id="screen-vision" class="screen">
         <div class="vision-section">
@@ -256,7 +256,7 @@
       </div>
 
       <!-- ========================================
-           TELA 2.5: COMO A IA FUNCIONA
+           SCREEN 2.5: HOW AI WORKS
       ======================================== -->
       <div id="screen-ai-features" class="screen">
         <div class="vision-section">
@@ -323,7 +323,7 @@
       </div>
 
       <!-- ========================================
-           TELA 3: DETALHES DO CLIENTE + IA
+           SCREEN 3: CLIENT DETAILS + AI
       ======================================== -->
       <div id="screen-details" class="screen">
 
@@ -332,10 +332,10 @@
           <div class="value" style="font-weight:bold;">Emersom Azevedo Da Mata</div>
         </div>
 
-        <!-- PAINEL AI EXPANDIDO -->
+        <!-- EXPANDED AI PANEL -->
         <div class="ai-panel-expanded">
 
-          <!-- BADGE DEMOCRATIZAÇÃO -->
+          <!-- DEMOCRATIZATION BADGE -->
           <div class="ai-democratization-badge">
             <i class="material-icons">school</i>
             <div>
@@ -344,7 +344,7 @@
             </div>
           </div>
 
-          <!-- CITAÇÃO DO DOCUMENTO -->
+          <!-- DOCUMENT QUOTE -->
           <div class="ai-quote">
             <i class="material-icons">format_quote</i>
             <p>"Humanos focam em empatia, relacionamento e estratégia, enquanto a IA assume tarefas repetitivas,
@@ -375,7 +375,7 @@
             </button>
           </div>
 
-          <!-- TAB: PERFIL -->
+          <!-- TAB: PROFILE -->
           <div id="ai-profile" class="tab-content active">
             <h4>📊 Perfil Comportamental Detalhado</h4>
             <div class="info-card">
@@ -399,7 +399,7 @@
             </div>
           </div>
 
-          <!-- TAB: RISCO -->
+          <!-- TAB: RISK -->
           <div id="ai-risk" class="tab-content">
             <h4>⚠️ Análise de Risco Social</h4>
             <div class="risk-card low-risk">
@@ -454,7 +454,7 @@
             </div>
           </div>
 
-          <!-- TAB: RECOMENDAÇÕES -->
+          <!-- TAB: RECOMMENDATIONS -->
           <div id="ai-recommendation" class="tab-content">
             <h4>💡 Recomendações IA</h4>
 
@@ -480,7 +480,7 @@
             </div>
           </div>
 
-          <!-- TAB: HISTÓRICO -->
+          <!-- TAB: HISTORY -->
           <div id="ai-history" class="tab-content">
             <h4>📜 Histórico de Interações com IA</h4>
 
@@ -528,7 +528,7 @@
 
         </div>
 
-        <!-- FORMULÁRIO DE ENDEREÇO -->
+        <!-- ADDRESS FORM -->
         <div class="form-group">
           <div style="display:flex; justify-content:space-between;">
             <div>
@@ -585,7 +585,7 @@
       </div>
 
       <!-- ========================================
-           TELA 4: IMPACTO ODS
+           SCREEN 4: SDG IMPACT
       ======================================== -->
       <div id="screen-ods-impact" class="screen">
         <div class="ods-impact-section">

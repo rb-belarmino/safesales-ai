@@ -1,5 +1,5 @@
 /* ========================================
-   RESET E VARIÁVEIS GLOBAIS
+   RESET AND GLOBAL VARIABLES
 ======================================== */
 * {
   margin: 0;
@@ -136,7 +136,7 @@ body {
 }
 
 /* ========================================
-   SIDEBAR E OVERLAY (iOS Style)
+   SIDEBAR AND OVERLAY (iOS Style)
 ======================================== */
 .sidebar-overlay {
   position: fixed;
@@ -462,7 +462,7 @@ body {
 }
 
 /* ========================================
-   VISÃO SAFESALES AI
+   SAFESALES AI VISION
 ======================================== */
 .vision-section {
   padding: 20px;
@@ -499,7 +499,7 @@ body {
   line-height: 1.7;
 }
 
-/* PILARES */
+/* PILLARS */
 .pillars {
   margin: 30px 0;
 }
@@ -590,7 +590,7 @@ body {
   text-align: left;
 }
 
-/* TRANSFORMAÇÃO E DEMOCRATIZAÇÃO */
+/* TRANSFORMATION AND DEMOCRATIZATION */
 .transformation,
 .democratization {
   background: var(--bg-light);
@@ -722,7 +722,7 @@ blockquote {
 }
 
 /* ========================================
-   AI PANEL EXPANDIDO (Glass Morphism)
+   EXPANDED AI PANEL (Glass Morphism)
 ======================================== */
 .ai-panel-expanded {
   background: rgba(255, 255, 255, 0.95);
@@ -1084,7 +1084,7 @@ blockquote {
   border-color: #6c757d;
 }
 
-/* TIMELINE DE HISTÓRICO */
+/* HISTORY TIMELINE */
 .history-timeline {
   position: relative;
   padding-left: 30px;

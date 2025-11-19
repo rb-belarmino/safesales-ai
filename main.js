@@ -1,5 +1,5 @@
 /* ========================================
-   VARIÁVEIS GLOBAIS
+   GLOBAL VARIABLES
 ======================================== */
 let currentScreen = 'home'
 let navigationHistory = []
@@ -9,7 +9,7 @@ let isOnline = navigator.onLine
    HAPTIC FEEDBACK (iOS Style)
 ======================================== */
 function hapticFeedback(type = 'light') {
-  // Simular feedback tátil
+  // Simulate haptic feedback
   if (navigator.vibrate) {
     const patterns = {
       light: [10],
@@ -24,7 +24,7 @@ function hapticFeedback(type = 'light') {
 }
 
 /* ========================================
-   MENU LATERAL (SIDEBAR) - iOS Enhanced
+   SIDEBAR MENU - iOS Enhanced
 ======================================== */
 function toggleMenu() {
   const sidebar = document.getElementById('sidebar')
@@ -35,7 +35,7 @@ function toggleMenu() {
   sidebar.classList.toggle('active')
   overlay.classList.toggle('active')
 
-  // Prevenir scroll do body quando menu aberto
+  // Prevent body scroll when menu is open
   if (sidebar.classList.contains('active')) {
     document.body.style.overflow = 'hidden'
   } else {
@@ -44,44 +44,44 @@ function toggleMenu() {
 }
 
 /* ========================================
-   NAVEGAÇÃO ENTRE TELAS - iOS Enhanced
+   SCREEN NAVIGATION - iOS Enhanced
 ======================================== */
 function navigateTo(screenName) {
   // Haptic feedback
   hapticFeedback('light')
 
-  // Adicionar ao histórico
+  // Add to history
   addToHistory(screenName)
 
-  // Esconder todas as telas
+  // Hide all screens
   const screens = document.querySelectorAll('.screen')
   screens.forEach(screen => screen.classList.remove('active'))
 
-  // Mostrar a tela selecionada
+  // Show selected screen
   const targetScreen = document.getElementById(`screen-${screenName}`)
   if (targetScreen) {
     targetScreen.classList.add('active')
     currentScreen = screenName
 
-    // Atualizar título do header
+    // Update header title
     updateHeaderTitle(screenName)
 
-    // Atualizar item ativo no menu
+    // Update active menu item
     updateActiveMenuItem(screenName)
 
-    // Fechar menu lateral
+    // Close sidebar menu
     const sidebar = document.getElementById('sidebar')
     if (sidebar.classList.contains('active')) {
       toggleMenu()
     }
 
-    // Track navegação
+    // Track navigation
     trackEvent('navigation', { to: screenName })
 
-    // Scroll para o topo
+    // Scroll to top
     targetScreen.scrollTop = 0
 
-    // Animar métricas quando abrir tela ODS
+    // Animate metrics when opening ODS screen
     if (screenName === 'ods-impact') {
       setTimeout(() => {
         animateMetrics()
@@ -91,7 +91,7 @@ function navigateTo(screenName) {
 }
 
 /* ========================================
-   ATUALIZAR TÍTULO DO HEADER
+   UPDATE HEADER TITLE
 ======================================== */
 function updateHeaderTitle(screenName) {
   const headerTitle = document.getElementById('header-title')
@@ -104,7 +104,7 @@ function updateHeaderTitle(screenName) {
     'ai-features': 'Como a IA Funciona'
   }
 
-  // Animação de fade no título
+  // Fade animation on title
   headerTitle.style.opacity = '0'
   setTimeout(() => {
     headerTitle.textContent = titles[screenName] || 'SafeSales AI'
@@ -114,7 +114,7 @@ function updateHeaderTitle(screenName) {
 }
 
 /* ========================================
-   ATUALIZAR ITEM ATIVO NO MENU
+   UPDATE ACTIVE MENU ITEM
 ======================================== */
 function updateActiveMenuItem(screenName) {
   const menuItems = document.querySelectorAll('.sidebar-item')
@@ -123,7 +123,7 @@ function updateActiveMenuItem(screenName) {
     item.classList.remove('active')
   })
 
-  // Adicionar classe active ao item correspondente
+  // Add active class to corresponding item
   const menuMapping = {
     home: 0,
     vision: 1,
@@ -138,44 +138,44 @@ function updateActiveMenuItem(screenName) {
 }
 
 /* ========================================
-   TABS DA IA (AI PANEL) - iOS Enhanced
+   AI TABS (AI PANEL) - iOS Enhanced
 ======================================== */
 function showAITab(tabName) {
   hapticFeedback('light')
 
-  // Esconder todos os conteúdos de tabs
+  // Hide all tab contents
   const tabContents = document.querySelectorAll('.tab-content')
   tabContents.forEach(content => content.classList.remove('active'))
 
-  // Remover classe active de todos os botões
+  // Remove active class from all buttons
   const tabButtons = document.querySelectorAll('.tab-button')
   tabButtons.forEach(button => button.classList.remove('active'))
 
-  // Mostrar o conteúdo da tab selecionada
+  // Show selected tab content
   const targetTab = document.getElementById(`ai-${tabName}`)
   if (targetTab) {
     targetTab.classList.add('active')
   }
 
-  // Adicionar classe active ao botão clicado
+  // Add active class to clicked button
   event.target.closest('.tab-button').classList.add('active')
 
-  // Animação das barras de progresso quando abrir tab de risco
+  // Animate progress bars when opening risk tab
   if (tabName === 'risk') {
     animateRiskBars()
   }
 
-  // Animação das barras de impacto quando abrir tab
+  // Animate impact bars when opening tab
   if (tabName === 'impact') {
     animateImpactBars()
   }
 
-  // Track mudança de tab
+  // Track tab change
   trackEvent('ai_tab_change', { tab: tabName })
 }
 
 /* ========================================
-   ANIMAÇÃO DAS BARRAS DE RISCO - iOS Enhanced
+   RISK BARS ANIMATION - iOS Enhanced
 ======================================== */
 function animateRiskBars() {
   setTimeout(() => {
@@ -184,7 +184,7 @@ function animateRiskBars() {
       const width = fill.style.width
       fill.style.width = '0%'
 
-      // Delay progressivo para cada barra
+      // Progressive delay for each bar
       setTimeout(() => {
         fill.style.width = width
       }, 100 + index * 150)
@@ -193,7 +193,7 @@ function animateRiskBars() {
 }
 
 /* ========================================
-   ANIMAÇÃO DAS BARRAS DE IMPACTO ODS
+   ODS IMPACT BARS ANIMATION
 ======================================== */
 function animateImpactBars() {
   setTimeout(() => {
@@ -210,7 +210,7 @@ function animateImpactBars() {
 }
 
 /* ========================================
-   ANIMAR MÉTRICAS DE IMPACTO
+   ANIMATE IMPACT METRICS
 ======================================== */
 function animateMetrics() {
   setTimeout(() => {
@@ -232,7 +232,7 @@ function animateMetrics() {
 function showToast(message, duration = 3000, type = 'info') {
   const toast = document.getElementById('toast')
 
-  // Haptic feedback baseado no tipo
+  // Type-based haptic feedback
   const hapticMap = {
     success: 'success',
     error: 'error',
@@ -241,7 +241,7 @@ function showToast(message, duration = 3000, type = 'info') {
   }
   hapticFeedback(hapticMap[type] || 'light')
 
-  // Ícones por tipo
+  // Icons by type
   const icons = {
     success: '✓',
     error: '✕',
@@ -253,7 +253,7 @@ function showToast(message, duration = 3000, type = 'info') {
   toast.innerHTML = `${icon} ${message}`
   toast.classList.add('show')
 
-  // Adicionar classe de tipo
+  // Add type class
   toast.className = `toast show toast-${type}`
 
   setTimeout(() => {
@@ -268,7 +268,7 @@ function showToast(message, duration = 3000, type = 'info') {
    LOADING iOS STYLE
 ======================================== */
 function showIOSLoading(message = 'Carregando...') {
-  // Criar elemento de loading se não existir
+  // Create loading element if it doesn't exist
   let loader = document.getElementById('ios-loader')
 
   if (!loader) {
@@ -287,7 +287,7 @@ function showIOSLoading(message = 'Carregando...') {
 
   loader.style.display = 'flex'
 
-  // Adicionar estilos se não existirem
+  // Add styles if they don't exist
   if (!document.getElementById('ios-loader-styles')) {
     const style = document.createElement('style')
     style.id = 'ios-loader-styles'
@@ -355,17 +355,17 @@ function hideIOSLoading() {
 }
 
 /* ========================================
-   CARREGAR DADOS DO CLIENTE - iOS Enhanced
+   LOAD CLIENT DATA - iOS Enhanced
 ======================================== */
 function loadClientData(clientName = 'Emersom Azevedo Da Mata') {
   const loader = showIOSLoading('Carregando análise da IA...')
 
-  // Simular carregamento
+  // Simulate loading
   setTimeout(() => {
     hideIOSLoading()
     showToast('✓ Análise carregada com sucesso!', 2000, 'success')
 
-    // Animar entrada dos dados
+    // Animate data entry
     const aiPanel = document.querySelector('.ai-panel-expanded')
     if (aiPanel) {
       aiPanel.style.opacity = '0'
@@ -380,7 +380,7 @@ function loadClientData(clientName = 'Emersom Azevedo Da Mata') {
 }
 
 /* ========================================
-   INICIALIZAR ANIMAÇÕES DAS BARRAS ODS
+   INITIALIZE ODS BARS ANIMATIONS
 ======================================== */
 function initODSBars() {
   const impactFills = document.querySelectorAll('.impact-fill')
@@ -408,7 +408,7 @@ function initODSBars() {
 }
 
 /* ========================================
-   VALIDAÇÃO DE FORMULÁRIO - iOS Enhanced
+   FORM VALIDATION - iOS Enhanced
 ======================================== */
 function validateForm() {
   const requiredFields = document.querySelectorAll('[required]')
@@ -425,7 +425,7 @@ function validateForm() {
         firstInvalidField = field
       }
 
-      // Remover borda vermelha ao digitar
+      // Remove red border when typing
       field.addEventListener(
         'input',
         function () {
@@ -440,7 +440,7 @@ function validateForm() {
     hapticFeedback('error')
     showToast('⚠ Preencha todos os campos obrigatórios', 3000, 'warning')
 
-    // Scroll para o primeiro campo inválido
+    // Scroll to first invalid field
     if (firstInvalidField) {
       firstInvalidField.scrollIntoView({
         behavior: 'smooth',
@@ -454,7 +454,7 @@ function validateForm() {
 }
 
 /* ========================================
-   BUSCAR CLIENTE - iOS Enhanced
+   SEARCH CLIENT - iOS Enhanced
 ======================================== */
 function searchClient(query) {
   if (!query || query.trim().length < 3) {
@@ -464,7 +464,7 @@ function searchClient(query) {
 
   showIOSLoading(`Buscando: ${query}...`)
 
-  // Simular busca
+  // Simulate search
   setTimeout(() => {
     hideIOSLoading()
 
@@ -474,7 +474,7 @@ function searchClient(query) {
       hapticFeedback('success')
       showToast('✓ Cliente encontrado!', 2000, 'success')
 
-      // Simular highlight do resultado
+      // Simulate result highlight
       setTimeout(() => {
         const firstCard = document.querySelector('.client-card')
         if (firstCard) {
@@ -497,7 +497,7 @@ function searchClient(query) {
 }
 
 /* ========================================
-   REALIZAR CHECK-IN - iOS Enhanced
+   PERFORM CHECK-IN - iOS Enhanced
 ======================================== */
 function performCheckIn() {
   if (currentScreen !== 'details') {
@@ -514,7 +514,7 @@ function performCheckIn() {
     hapticFeedback('success')
     showToast('✓ Check-in realizado com sucesso!', 2000, 'success')
 
-    // Salvar dados
+    // Save data
     const timestamp = new Date().toLocaleString('pt-BR')
     const checkInData = {
       timestamp,
@@ -526,7 +526,7 @@ function performCheckIn() {
     localStorage.setItem('lastCheckIn', JSON.stringify(checkInData))
     trackEvent('check_in', checkInData)
 
-    // Voltar para home após 2 segundos
+    // Return to home after 2 seconds
     setTimeout(() => {
       navigateTo('home')
     }, 2000)
@@ -534,7 +534,7 @@ function performCheckIn() {
 }
 
 /* ========================================
-   EXPORTAR RELATÓRIO - iOS Enhanced
+   EXPORT REPORT - iOS Enhanced
 ======================================== */
 function exportReport(format = 'pdf') {
   showIOSLoading(`Gerando relatório ${format.toUpperCase()}...`)
@@ -550,7 +550,7 @@ function exportReport(format = 'pdf') {
 }
 
 /* ========================================
-   COMPARTILHAR ANÁLISE - iOS Enhanced
+   SHARE ANALYSIS - iOS Enhanced
 ======================================== */
 function shareAnalysis() {
   hapticFeedback('light')
@@ -574,7 +574,7 @@ function shareAnalysis() {
         }
       })
   } else {
-    // Fallback: copiar link
+    // Fallback: copy link
     navigator.clipboard
       .writeText(window.location.href)
       .then(() => {
@@ -590,7 +590,7 @@ function shareAnalysis() {
 }
 
 /* ========================================
-   SALVAR/CARREGAR PREFERÊNCIAS
+   SAVE/LOAD PREFERENCES
 ======================================== */
 function saveUserPreferences() {
   const preferences = {
@@ -621,7 +621,7 @@ function loadUserPreferences() {
 }
 
 /* ========================================
-   MÉTRICAS EM TEMPO REAL
+   REAL-TIME METRICS
 ======================================== */
 function updateMetrics() {
   const metrics = {
@@ -638,7 +638,7 @@ function updateMetrics() {
 }
 
 /* ========================================
-   FILTRAR CLIENTES
+   FILTER CLIENTS
 ======================================== */
 function filterClients(criteria) {
   hapticFeedback('light')
@@ -663,7 +663,7 @@ function filterClients(criteria) {
       }
     }
 
-    // Animação de saída/entrada
+    // Exit/entry animation
     if (shouldShow) {
       setTimeout(() => {
         card.style.display = 'block'
@@ -695,7 +695,7 @@ function filterClients(criteria) {
 }
 
 /* ========================================
-   GERAR INSIGHTS COM IA
+   GENERATE AI INSIGHTS
 ======================================== */
 function generateAIInsights(clientData) {
   showIOSLoading('🤖 IA gerando insights...')
@@ -726,7 +726,7 @@ function generateAIInsights(clientData) {
 }
 
 /* ========================================
-   SINCRONIZAR COM SERVIDOR
+   SYNC WITH SERVER
 ======================================== */
 function syncWithServer() {
   if (!isOnline) {
@@ -753,7 +753,7 @@ function syncWithServer() {
 }
 
 /* ========================================
-   MODO OFFLINE
+   OFFLINE MODE
 ======================================== */
 function checkOnlineStatus() {
   isOnline = navigator.onLine
@@ -777,7 +777,7 @@ window.addEventListener('offline', () => {
 })
 
 /* ========================================
-   HISTÓRICO DE NAVEGAÇÃO
+   NAVIGATION HISTORY
 ======================================== */
 function addToHistory(screenName) {
   navigationHistory.push(screenName)
@@ -800,10 +800,10 @@ function goBack() {
 }
 
 /* ========================================
-   ATALHOS DE TECLADO
+   KEYBOARD SHORTCUTS
 ======================================== */
 document.addEventListener('keydown', e => {
-  // ESC para fechar menu
+  // ESC to close menu
   if (e.key === 'Escape') {
     const sidebar = document.getElementById('sidebar')
     if (sidebar && sidebar.classList.contains('active')) {
@@ -811,19 +811,19 @@ document.addEventListener('keydown', e => {
     }
   }
 
-  // Ctrl/Cmd + H para home
+  // Ctrl/Cmd + H for home
   if ((e.ctrlKey || e.metaKey) && e.key === 'h') {
     e.preventDefault()
     navigateTo('home')
   }
 
-  // Ctrl/Cmd + B para voltar
+  // Ctrl/Cmd + B to go back
   if ((e.ctrlKey || e.metaKey) && e.key === 'b') {
     e.preventDefault()
     goBack()
   }
 
-  // Ctrl/Cmd + K para busca
+  // Ctrl/Cmd + K for search
   if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
     e.preventDefault()
     const searchInput = document.querySelector('input[type="search"]')
@@ -834,7 +834,7 @@ document.addEventListener('keydown', e => {
 })
 
 /* ========================================
-   ANIMAÇÃO DE ENTRADA
+   ENTRANCE ANIMATION
 ======================================== */
 function animateEntrance() {
   const mobileFrame = document.querySelector('.mobile-frame')
@@ -852,7 +852,7 @@ function animateEntrance() {
 }
 
 /* ========================================
-   ANALYTICS E TRACKING
+   ANALYTICS AND TRACKING
 ======================================== */
 function trackEvent(eventName, eventData = {}) {
   const event = {
@@ -865,18 +865,18 @@ function trackEvent(eventName, eventData = {}) {
 
   console.log('📊 Event tracked:', event)
 
-  // Salvar eventos localmente
+  // Save events locally
   const events = JSON.parse(localStorage.getItem('analytics_events') || '[]')
   events.push(event)
 
-  // Manter apenas últimos 100 eventos
+  // Keep only last 100 events
   if (events.length > 100) {
     events.shift()
   }
 
   localStorage.setItem('analytics_events', JSON.stringify(events))
 
-  // Aqui você enviaria para Google Analytics, Mixpanel, etc.
+  // Here you would send to Google Analytics, Mixpanel, etc.
   // gtag('event', eventName, eventData);
 }
 
@@ -889,7 +889,7 @@ function generateSessionId() {
 }
 
 /* ========================================
-   NOTIFICAÇÕES PUSH
+   PUSH NOTIFICATIONS
 ======================================== */
 function requestNotificationPermission() {
   if ('Notification' in window && Notification.permission === 'default') {
@@ -962,34 +962,34 @@ function initPullToRefresh() {
 }
 
 /* ========================================
-   INICIALIZAÇÃO
+   INITIALIZATION
 ======================================== */
 document.addEventListener('DOMContentLoaded', () => {
   console.log('🚀 SafeSales AI inicializado!')
   console.log('📄 Versão: 2.0 - Futuro do Trabalho (2030-2050)')
 
-  // Gerar session ID
+  // Generate session ID
   generateSessionId()
 
-  // Carregar preferências
+  // Load preferences
   const preferences = loadUserPreferences()
   console.log('Preferências carregadas:', preferences)
 
-  // Verificar conexão
+  // Check connection
   checkOnlineStatus()
 
-  // Inicializar animações
+  // Initialize animations
   initODSBars()
   animateEntrance()
   initPullToRefresh()
 
-  // Salvar preferências
+  // Save preferences
   saveUserPreferences()
 
-  // Adicionar home ao histórico
+  // Add home to history
   addToHistory('home')
 
-  // Adicionar haptic feedback aos elementos interativos
+  // Add haptic feedback to interactive elements
   document
     .querySelectorAll(
       '.btn-checkin-large, .tab-button, .client-card, .sidebar-item'
@@ -998,7 +998,7 @@ document.addEventListener('DOMContentLoaded', () => {
       el.addEventListener('click', () => hapticFeedback('light'))
     })
 
-  // Track página inicial
+  // Track initial page
   trackEvent('app_initialized', {
     version: '2.0',
     platform: navigator.platform,
@@ -1007,7 +1007,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ods: ['ODS 4', 'ODS 8', 'ODS 10']
   })
 
-  // Mensagem de boas-vindas
+  // Welcome message
   setTimeout(() => {
     showToast(
       '🚀 Bem-vindo ao SafeSales AI - Futuro do Trabalho!',
@@ -1016,7 +1016,7 @@ document.addEventListener('DOMContentLoaded', () => {
     )
   }, 1000)
 
-  // Verificar última sincronização
+  // Check last sync
   const lastSync = localStorage.getItem('lastSync')
   if (lastSync) {
     console.log('Última sincronização:', lastSync)
@@ -1024,7 +1024,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Primeira inicialização - bem-vindo!')
   }
 
-  // Log de métricas
+  // Metrics log
   console.log('📊 Métricas iniciais:', updateMetrics())
 })
 
@@ -1047,10 +1047,10 @@ if ('serviceWorker' in navigator) {
 }
 
 /* ========================================
-   EXPORTAR FUNÇÕES GLOBAIS (API)
+   EXPORT GLOBAL FUNCTIONS (API)
 ======================================== */
 window.SafeSalesAI = {
-  // Navegação
+  // Navigation
   navigateTo,
   goBack,
   toggleMenu,
@@ -1061,7 +1061,7 @@ window.SafeSalesAI = {
   hideIOSLoading,
   showAITab,
 
-  // Ações
+  // Actions
   performCheckIn,
   searchClient,
   exportReport,
@@ -1080,7 +1080,7 @@ window.SafeSalesAI = {
   hapticFeedback,
   validateForm,
 
-  // Dados
+  // Data
   updateMetrics,
   saveUserPreferences,
   loadUserPreferences,
