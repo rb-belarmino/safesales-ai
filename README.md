@@ -262,7 +262,6 @@ Este projeto foi desenvolvido como parte da **Global Solution 2025** da **FIAP**
 - 🤖 **Inteligência Artificial** - Algoritmos preditivos e NLP
 - 🌍 **Sustentabilidade** - Alinhamento com ODS da ONU
 - 💻 **Desenvolvimento Web** - Frontend moderno e responsivo
-- 📊 **Análise de Dados** - Métricas e dashboards
 
 ### Competências Desenvolvidas
 
@@ -271,21 +270,6 @@ Este projeto foi desenvolvido como parte da **Global Solution 2025** da **FIAP**
 - ✅ Aplicação de IA com responsabilidade social
 - ✅ Design de experiências centradas no usuário
 - ✅ Desenvolvimento full-stack (frontend)
-
----
-
-## 🚀 Próximos Passos (Roadmap)
-
-- [ ] **Backend Integration** - API REST com Node.js/Python
-- [ ] **Machine Learning Real** - Modelos de ML treinados
-- [ ] **Autenticação** - Login com JWT/OAuth
-- [ ] **Banco de Dados** - MongoDB/PostgreSQL
-- [ ] **PWA Completo** - Service Worker + Offline Mode
-- [ ] **Dashboard Analytics** - Gráficos interativos (Chart.js)
-- [ ] **Mobile App** - React Native ou Flutter
-- [ ] **Testes Automatizados** - Jest/Cypress
-- [ ] **CI/CD** - GitHub Actions
-- [ ] **Deploy em Produção** - Vercel/Netlify
 
 ---
 
