@@ -115,21 +115,11 @@ A SafeSales AI contribui diretamente para:
 
 ## 📱 Screenshots
 
-### Tela Home - Lista de Clientes
+![Tela 1](screenshots/menu.png)
 
-![Home](screenshots/home.png)
+![Tela 2](screenshots/image1.png)
 
-### AI Panel - Análise Completa
-
-![AI Panel](screenshots/ai-panel.png)
-
-### Visão SafeSales AI
-
-![Vision](screenshots/vision.png)
-
-### Impacto ODS
-
-![ODS Impact](screenshots/ods-impact.png)
+![Tela 3](screenshots/image2.png)
 
 ---
 
